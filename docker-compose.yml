@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'aspace'
+      MYSQL_USER: 'aspace'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports: 
+      - "3306:3306"
+    volumes:
+      - aspace_db:/var/lib/mysql
+      - ./aspace_data:/aspace_data
+volumes:
+  aspace_db:
